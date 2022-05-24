@@ -18,7 +18,7 @@ const Footer = () => {
                 </div>
             </div>
             <div>
-                <p>Copyright © 2022 - All right reserved by #RT17</p>
+                <p>Copyright © 2022 - All right reserved by Tools Hub</p>
             </div>
         </footer>
     );

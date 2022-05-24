@@ -4,6 +4,7 @@ import './App.css';
 import Header from './Components/Header';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
+import Signup from './pages/Login/Signup';
 import Purchase from './pages/Purchase';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/purchase/:id' element={<Purchase></Purchase>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/signup' element={<Signup></Signup>}></Route>
       </Routes>
 
     </div>
