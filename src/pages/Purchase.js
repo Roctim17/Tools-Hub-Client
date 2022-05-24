@@ -12,6 +12,10 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => setProduct(data))
     }, []);
+    // const handleOrder =event=>{
+    //     event.preventDefault();
+
+    // }
 
     return (
         <div className="flex grid-cols-1 justify-center " >
@@ -25,9 +29,14 @@ const Purchase = () => {
                     <h3>Price: {product.price}</h3>
                     <h3>Minimum Order Quantity: {product.order}</h3>
                     <h3>Available Quantity : {product.quantity}</h3>
-                    <div className="card-actions">
+                    <form action="" className='grid grid-cols-1 gap-3 justify-items-center mt-3'>
+                        <input type="text" className="input input-bordered input-primary w-full max-w-xs" />
 
-                    </div>
+                        {/* <input type="text" name='name' disabled value={user?.displayName || ''} className="input input-bordered input-primary w-full max-w-xs" />
+                        <input type="email" name='email' disabled value={user?.email || ''} className="input input-bordered input-primary w-full max-w-xs" /> */}
+                        <input type="text" name='phone' placeholder="Phone Number" className="input input-bordered input-primary w-full max-w-xs" />
+                        <input type="submit" value='Order' placeholder="Type here" className="btn btn-secondary w-full max-w-xs" />
+                    </form>
                 </div>
             </div>
         </div>
