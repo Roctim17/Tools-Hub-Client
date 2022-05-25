@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-
 import { Link, useLocation, useNavigate } from "react-router-dom";
-// import useToken from '../../Hooks/useToken';
 import Loading from '../../Components/Loading';
 import { toast } from 'react-toastify';
+import useToken from '../../hooks/useToken';
 const Login = () => {
     const [email, setEmail] = useState({ value: '', error: '' });
     const [sendPasswordResetEmail, sending, forgotError] = useSendPasswordResetEmail(
@@ -21,23 +20,23 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    // const [token] = useToken(user || googleUser)
+    const [token] = useToken(user || googleUser)
 
     let signInError;
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || '/';
 
-    // useEffect(() => {
-    //     if (token) {
-    //         navigate(from, { replace: true });
-    //     }
-    // }, [token, from, navigate])
     useEffect(() => {
-        if (user || googleUser) {
+        if (token) {
             navigate(from, { replace: true });
         }
-    }, [from, navigate])
+    }, [token, from, navigate])
+    // useEffect(() => {
+    //     if (user || googleUser) {
+    //         navigate(from, { replace: true });
+    //     }
+    // }, [from, navigate])
 
 
     if (user || googleUser) {
