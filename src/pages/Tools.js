@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import Loading from '../Components/Loading'
+import { useQuery } from 'react-query';
 import SingleTools from '../Components/SingleTools';
 // import Purchase from './Purchase';
 
 const Tools = () => {
-    const [products, setProducts] = useState([]);
-    const [tools, setTools] = useState(null);
-    useEffect(() => {
-        fetch('http://localhost:5000/product')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [])
+    const { data: products, isLoading } = useQuery('product', () => fetch('http://localhost:5000/product')
+        .then(res => res.json())
+    )
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
     return (
         <div>
             <h1>Our product</h1>
@@ -18,7 +19,6 @@ const Tools = () => {
                     products.map(product => <SingleTools
                         key={product._id}
                         product={product}
-                        setTools={setTools}
                     ></SingleTools>)
                 }
 
