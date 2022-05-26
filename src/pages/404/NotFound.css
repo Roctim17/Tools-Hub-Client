@@ -1,0 +1,28 @@
+.btn-Home {
+    padding: 10px 0px;
+    background-color: #758efd;
+    border-radius: 5px;
+    color: #fff;
+    border: 1px solid;
+    width: 10%;
+    margin: auto;
+
+
+}
+
+.img-404 img {
+    margin: auto;
+}
+
+.btn-Home a {
+    color: #fff;
+    text-decoration: none;
+    padding: 20px;
+}
+
+@media only screen and (max-width:688px) {
+    .btn-Home {
+        width: 50%;
+        padding: 15px;
+    }
+}

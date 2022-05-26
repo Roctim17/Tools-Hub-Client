@@ -23,7 +23,7 @@ const Purchase = () => {
             orderQuantity: event.target.orderQuantity.value,
             phone: event.target.phone.value,
             address: event.target.address.value,
-            // price: order.orderQuantity * price,
+            price: price,
         }
         axios.post('http://localhost:5000/order', order)
             .then(response => {

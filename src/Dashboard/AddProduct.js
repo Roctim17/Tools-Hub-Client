@@ -32,7 +32,7 @@ const AddProduct = () => {
                             <input type="text" placeholder="name" {...register("name", { required: true })} className="input input-bordered input-primary w-full max-w-xs" />
                             <input type="text" placeholder="description" {...register("description")} className="input input-bordered input-primary w-full max-w-xs" />
                             <input type="number" placeholder="price " {...register("price")} className="input input-bordered input-primary w-full max-w-xs" />
-                            <input type="number" min="10" step="1" max="50" placeholder="order " {...register("order")} className="input input-bordered input-primary w-full max-w-xs" />
+                            <input type="number" min="10" step="1" max="10" placeholder="order " {...register("order")} className="input input-bordered input-primary w-full max-w-xs" />
                             <input type="number" placeholder="quantity " {...register("quantity")} className="input input-bordered input-primary w-full max-w-xs" />
                             <input type="text" placeholder="image Url" {...register("image")} className="input input-bordered input-primary w-full max-w-xs" />
                             <input type="submit" value='Add Product' className="btn btn-bordered btn-primary w-full max-w-xs" />

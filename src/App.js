@@ -12,6 +12,7 @@ import MyOrder from './Dashboard/MyOrder';
 import MyProfile from './Dashboard/MyProfile';
 import MyReview from './Dashboard/MyReview';
 import User from './Dashboard/User';
+import NotFound from './pages/404/NotFound';
 import About from './pages/About';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
@@ -20,6 +21,7 @@ import Login from './pages/Login/Login';
 import RequireAuth from './pages/Login/RequireAuth';
 import Signup from './pages/Login/Signup';
 import MyPortfolio from './pages/MyPortfolio';
+import Payment from './pages/Payment';
 import Purchase from './pages/Purchase';
 
 function App() {
@@ -48,12 +50,14 @@ function App() {
           <Route path="myOrder" element={<MyOrder></MyOrder>}></Route>
           <Route path="review" element={<MyReview></MyReview>}></Route>
           <Route path="users" element={<User></User>}></Route>
+          <Route path="payment/:id" element={<Payment></Payment>}></Route>
           <Route path="addProduct" element={<AddProduct></AddProduct>}></Route>
           <Route path="manageProducts" element={<ManageProducts></ManageProducts>}></Route>
           <Route path="manageAllOrders" element={<ManageAllOrders></ManageAllOrders>}></Route>
         </Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer />
     </div>

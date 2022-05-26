@@ -1,14 +1,15 @@
 import React from 'react';
-import contact from '../assets/image/contact.jpg';
+import contactUs from '../assets/image/contactUs.jpg';
 
 const Contact = () => {
     return (
         <section style={{
-            background: `url(${contact})`
-        }} className=''>
+            background: `url(${contactUs})`,
+            backgroundPosition: 'center',
+        }} className='py-5'>
             <div className="text-center py-20">
                 <h3 className='text-primary text-3xl font-bold'>Contact Us</h3>
-                <h1 className='text-white text-4xl font-bold'>Stay connected with us</h1>
+                <h1 className='text-black text-4xl font-bold'>Stay connected with us</h1>
                 <div className="my-5">
                     <div className="form-control   w-9/12  m-auto">
                         <label className="">

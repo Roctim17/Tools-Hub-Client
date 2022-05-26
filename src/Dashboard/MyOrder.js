@@ -1,7 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../firebase.init';
 
 const MyOrder = () => {
@@ -40,9 +40,9 @@ const MyOrder = () => {
                         <tr>
                             <th></th>
                             <th>Name</th>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Address</th>
+                            <th>Product Name</th>
                             <th>Payment</th>
                         </tr>
                     </thead>
@@ -52,11 +52,11 @@ const MyOrder = () => {
                                 key={index}
                             > <th>{index + 1}</th>
                                 <td>{order.customerName}</td>
-                                <td>{order.date}</td>
-                                <td>{order.slot}</td>
+                                <td>{order.orderQuantity}</td>
+                                <td>{order.address}</td>
                                 <td>{order.product}</td>
-                                {/* <td>{(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}> <button className='btn btn-xs btn-success'>pay</button>  </Link>}
-                                    {(a.price && a.paid) && <span className='text-success'>paid</span>}</td> */}
+                                <td>{(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}> <button className='btn btn-xs btn-success'>pay</button>  </Link>}
+                                    {(order.price && order.paid) && <span className='text-success'>paid</span>}</td>
                             </tr>)
                         }
 

@@ -6,6 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Loading from '../../Components/Loading';
 import auth from '../../firebase.init';
 import useToken from '../../hooks/useToken';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Signup = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
@@ -42,9 +44,25 @@ const Signup = () => {
     //     navigate('/')
     // }
 
-    const onSubmit = async data => {
+    const onSubmit = async (data, event) => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
+        event.preventDefault();
+        const myProfile = {
+
+            customer: user.email,
+            customerName: user.displayName,
+            phone: event.target.phone.value,
+            address: event.target.address.value,
+        }
+        axios.post('http://localhost:5000/myProfile', myProfile)
+            .then(response => {
+                const { data } = response;
+                if (data.insertedId) {
+                    toast('Sign up done');
+
+                }
+            })
 
     }
 
@@ -117,7 +135,17 @@ const Signup = () => {
                                 {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                 {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}Email is pattern</span>}
                             </label>
+
                         </div>
+                        <div className="form-control w-full max-w-xs pb-5">
+                            <input type="text" name='address' placeholder="Address" className="input input-bordered input-primary w-full max-w-xs" required />
+                        </div>
+                        <div className="form-control w-full max-w-xs pb-5">
+                            <input type="text" name='phone' placeholder="Phone Number" className="input input-bordered input-primary w-full max-w-xs" required />
+                        </div>
+
+
+
                         {signInError}
 
                         <input className="btn w-full mas-w-xs text-white" type="submit" value='Sign Up' />
@@ -128,8 +156,8 @@ const Signup = () => {
                         onClick={() => signInWithGoogle()}
                         className="btn btn-outline">Continue with Google</button>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 

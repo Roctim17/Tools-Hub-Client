@@ -12,7 +12,7 @@ const Reviews = () => {
     }
     return (
         <div className='px-5 p-auto m-auto'>
-            <h1 className='card-body items-center text-center'><span className='card-title text-primary'>Total Reviews : {reviews.length}</span></h1>
+            <h1 className='card-body items-center text-center'><span className='card-title text-primary text-5xl font-bold'>Total Reviews : {reviews.length}</span></h1>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-50 m-auto">
                 {
                     reviews.slice(0, 3).map(review => <Review
