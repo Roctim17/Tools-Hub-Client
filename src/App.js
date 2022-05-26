@@ -4,15 +4,22 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import Header from './Components/Header';
+import AddProduct from './Dashboard/AddProduct';
 import Dashboard from './Dashboard/Dashboard';
+import ManageAllOrders from './Dashboard/ManageAllOrders';
+import ManageProducts from './Dashboard/ManageProducts';
 import MyOrder from './Dashboard/MyOrder';
 import MyProfile from './Dashboard/MyProfile';
 import MyReview from './Dashboard/MyReview';
 import User from './Dashboard/User';
+import About from './pages/About';
+import Blog from './pages/Blog';
+import Contact from './pages/Contact';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import RequireAuth from './pages/Login/RequireAuth';
 import Signup from './pages/Login/Signup';
+import MyPortfolio from './pages/MyPortfolio';
 import Purchase from './pages/Purchase';
 
 function App() {
@@ -23,6 +30,10 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/about' element={<About></About>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
+        <Route path='/contact' element={<Contact></Contact>}></Route>
+        <Route path='/Portfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='/purchase/:id' element={
           <RequireAuth>
             <Purchase></Purchase>
@@ -33,10 +44,13 @@ function App() {
             <Dashboard></Dashboard>
           </RequireAuth>
         }>
-          <Route index element={<MyOrder></MyOrder>}></Route>
+          <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route path="myOrder" element={<MyOrder></MyOrder>}></Route>
           <Route path="review" element={<MyReview></MyReview>}></Route>
-          <Route path="profile" element={<MyProfile></MyProfile>}></Route>
           <Route path="users" element={<User></User>}></Route>
+          <Route path="addProduct" element={<AddProduct></AddProduct>}></Route>
+          <Route path="manageProducts" element={<ManageProducts></ManageProducts>}></Route>
+          <Route path="manageAllOrders" element={<ManageAllOrders></ManageAllOrders>}></Route>
         </Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>

@@ -19,11 +19,11 @@ const SingleTools = ({ product }) => {
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{name}</h2>
                 <p>{description}</p>
-                <h3>Price: {price}</h3>
+                <h3>Price: {price}$</h3>
                 <h3>Minimum Order Quantity: {order}</h3>
                 <h3>Available Quantity : {quantity}</h3>
                 <div className="card-actions">
-                    <button disabled={quantity < 100}
+                    <button disabled={quantity < 50}
                         onClick={() => navigateToProduct(_id)}
                         className="btn btn-primary">Buy Now</button>
 

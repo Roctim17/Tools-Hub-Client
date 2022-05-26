@@ -2,23 +2,32 @@ import React from 'react';
 
 const BusinessSummary = () => {
     return (
-        <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
-                <figure className="px-10 pt-10">
-                    <img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" className="rounded-xl" />
-                </figure>
-                <div className="card-body items-center text-center">
-                    <h2 className="card-title">Shoes!</h2>
-                    <p>
+        <div className="text-center py-5 ">
+            <h1 className='text-5xl font-bold'>Business Summary</h1>
+            <div className="p-10 m-auto flex justify-center">
 
-                    </p>
-                    <div className="card-actions">
-                        <button className="btn btn-primary">Buy Now</button>
+                <div className="stats stats-vertical text-3xl   lg:stats-horizontal shadow ">
+
+                    <div className="stat ">
+                        <div className="stat-title">Customers</div>
+                        <div className="stat-value">100+</div>
+                        <div className="stat-desc">Jan 1st - Feb 1st</div>
                     </div>
+
+                    <div className="stat ">
+                        <div className="stat-title">Annual revenue</div>
+                        <div className="stat-value">120M+</div>
+                        <div className="stat-desc">↗︎ 400 (22%)</div>
+                    </div>
+
+                    <div className="stat ">
+                        <div className="stat-title">Reviews</div>
+                        <div className="stat-value">33K+</div>
+                        <div className="stat-desc">↘︎ 90 (14%)</div>
+                    </div>
+
                 </div>
             </div>
-
-
         </div>
     );
 };
