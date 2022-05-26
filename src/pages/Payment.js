@@ -3,7 +3,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
-import CheckoutFrom from '../Components/CheckoutFrom';
+import CheckoutForm from '../Components/CheckoutFrom';
 import Loading from '../Components/Loading';
 
 const stripePromise = loadStripe('pk_test_51L1dz5BZJhaULcBPUYZqLvE57rCZccpbpHRlj2HMZry8jPYlh9AZ0fqZ15ptESAQMRoALAm5IweTMJGeisv3RTU900Mu5lypgg');
@@ -21,7 +21,7 @@ const Payment = () => {
         return <Loading></Loading>
     }
     return (
-        <div>
+        <div className='m-auto'>
             <div className="card w-50 max-w-md  bg-base-100 shadow-xl my-12">
                 <div className="card-body">
                     <p className="text-success font-bold">Hello, {order.customerName}</p>
@@ -33,7 +33,7 @@ const Payment = () => {
             <div className="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
                 <div className="card-body">
                     <Elements stripe={stripePromise}>
-                        <CheckoutFrom order={order} />
+                        <CheckoutForm order={order}></CheckoutForm>
                     </Elements>
 
                 </div>
