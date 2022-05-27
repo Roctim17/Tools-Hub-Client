@@ -10,7 +10,7 @@ const MyOrder = () => {
     const navigate = useNavigate();
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?customer=${user.email}`, {
+            fetch(`https://polar-citadel-29750.herokuapp.com/order?customer=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -30,6 +30,22 @@ const MyOrder = () => {
                 });
         }
     }, [user, navigate])
+    const handleDelete = id => {
+        // const proceed = window.confirm('Sure ! Are you want to delete?')
+        // if (proceed) {
+        const url = `https://polar-citadel-29750.herokuapp.com/order/${id}`;
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                const remaining = orders.filter(product => product._id !== id)
+                setOrders(remaining);
+
+            })
+        // }
+    }
     return (
         <div>
             <h1>My order: {orders.length}</h1>
@@ -56,7 +72,21 @@ const MyOrder = () => {
                                 <td>{order.address}</td>
                                 <td>{order.product}</td>
                                 <td>{(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}> <button className='btn btn-xs btn-success'>pay</button>  </Link>}
-                                    {(order.price && order.paid) && <span className='text-success'>paid</span>}</td>
+                                    {(order.price && order.paid) && <span className='text-success'>paid</span>}
+                                    {(order.price && !order.paid) && <label for="my-modal-6" className="btn btn-xs btn-error"> Cancel</label>}
+                                </td>
+
+                                <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+                                <div className="modal modal-bottom sm:modal-middle">
+                                    <div className="modal-box">
+                                        <h3 className="font-bold text-lg">'Sure ! Are you want to delete?'</h3>
+                                        <p className="py-4"></p>
+                                        <div className="modal-action">
+                                            <label for="my-modal-6" onClick={() => handleDelete(order._id)} className="btn btn-error">Yes !</label>
+                                            <label for="my-modal-6" className="btn ">No</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </tr>)
                         }
 

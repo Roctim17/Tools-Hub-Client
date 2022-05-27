@@ -4,7 +4,7 @@ import Loading from '../Components/Loading';
 import Review from './Review';
 
 const Reviews = () => {
-    const { data: reviews, isLoading } = useQuery('review', () => fetch('http://localhost:5000/review')
+    const { data: reviews, isLoading } = useQuery('review', () => fetch('https://polar-citadel-29750.herokuapp.com/review')
         .then(res => res.json())
     )
     if (isLoading) {

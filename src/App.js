@@ -22,6 +22,7 @@ import RequireAuth from './pages/Login/RequireAuth';
 import Signup from './pages/Login/Signup';
 import MyPortfolio from './pages/MyPortfolio';
 import Payment from './pages/Payment';
+import Product from './pages/Product';
 import Purchase from './pages/Purchase';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/about' element={<About></About>}></Route>
+        <Route path='/product' element={<Product></Product>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='/Portfolio' element={<MyPortfolio></MyPortfolio>}></Route>

@@ -8,13 +8,45 @@ import useProduct from '../hooks/useProduct';
 const Purchase = () => {
     const [user] = useAuthState(auth);
     const { id } = useParams()
-    const [product] = useProduct(id);
+    const [product, setProduct] = useProduct(id);
 
     const { name, image, price, quantity, order, description } = product;
 
     const handleOrder = event => {
 
         event.preventDefault();
+        const previousQuantity = product.quantity;
+        const previousQuantityNumber = parseInt(previousQuantity);
+        const quantityNew = event.target.orderQuantity.value;
+        const quantityNumber = parseInt(quantityNew);
+        console.log(previousQuantity)
+        console.log(previousQuantity)
+        console.log(quantityNumber)
+        console.log(previousQuantityNumber)
+        console.log(quantityNumber)
+        console.log(previousQuantityNumber - quantityNumber)
+        if (quantityNew <= 0 || quantityNew == null) {
+            alert("Please add valid number")
+        }
+        if (quantityNew > 0) {
+            const quantity = previousQuantityNumber - quantityNumber;
+            const updateQuantity = { quantity };
+            console.log(updateQuantity)
+            const url = `https://polar-citadel-29750.herokuapp.com/product/${id}`;
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(updateQuantity)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    event.target.reset();
+                    setProduct(data);
+                    console.log(data, 'T')
+                })
+        }
         const order = {
             productId: id,
             product: name,
@@ -25,22 +57,20 @@ const Purchase = () => {
             address: event.target.address.value,
             price: price,
         }
-        axios.post('http://localhost:5000/order', order)
+        axios.post('https://polar-citadel-29750.herokuapp.com/order', order)
             .then(response => {
                 const { data } = response;
                 if (data.insertedId) {
-                    toast('Your order is booked!!!');
+                    toast('Your order is Pleased!!!');
                     event.target.reset();
                 }
             })
 
-    }
-    // const handlePrice = (event) => {
-    //     event.preventDefault();
-    //     const newPrice = parseInt(price) * (parseInt(order?.orderQuantity));
-    //     console.log(newPrice)
-    // }
 
+
+    }
+
+    console.log('this', quantity)
 
     return (
         <div className="flex grid-cols-1 justify-center " >

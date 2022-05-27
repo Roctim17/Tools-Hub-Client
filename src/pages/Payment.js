@@ -9,7 +9,7 @@ import Loading from '../Components/Loading';
 const stripePromise = loadStripe('pk_test_51L1dz5BZJhaULcBPUYZqLvE57rCZccpbpHRlj2HMZry8jPYlh9AZ0fqZ15ptESAQMRoALAm5IweTMJGeisv3RTU900Mu5lypgg');
 const Payment = () => {
     const { id } = useParams();
-    const url = `http://localhost:5000/order/${id}`
+    const url = `https://polar-citadel-29750.herokuapp.com/order/${id}`
     const { data: order, isLoading } = useQuery(['order', id], () => fetch(url, {
         method: 'GET',
         headers: {

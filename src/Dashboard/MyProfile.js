@@ -1,51 +1,27 @@
 
-import { useQuery } from 'react-query';
-import Loading from '../Components/Loading';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
 
 const MyProfile = () => {
 
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
-        method: 'GET',
-        headers: {
-            authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        }
-    }).then(res => res.json()));
+    const [user] = useAuthState(auth)
 
-    if (isLoading) {
-        return <Loading></Loading>
-    }
-
-    console.log(users)
+    const { displayName, email, phoneNumber, photoURL } = user;
+    console.log(user)
+    console.log(user.displayName)
     return (
-        <div>
-            <h2 className="text-2xl">All Users: {users.length}</h2>
-            <div className="overflow-x-auto">
-                <table className="table w-full">
-                    <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Phone </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {users.map((user, index) => <tr
-                            key={user._id}
-                            user={user}
-                            index={index}
-                            refetch={refetch}>
-                            <th>{index + 1}</th>
-                            <td>{user.email}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-
-                        </tr>)
-                        }
-                    </tbody>
-                </table>
+        <div className='pt-10 '>
+            <div className="card w-96 bg-base-100 shadow-xl pt-10 ">
+                <div className="avatar online m-auto ">
+                    <div className="w-24 rounded-full">
+                        <img src={photoURL || ('https://api.lorem.space/image/face?hash=28212')} alt='' />
+                    </div>
+                </div>
+                <div className="card-body items-center text-center">
+                    <h2 className="card-title">{displayName}</h2>
+                    <p>{email}</p>
+                    <p>{phoneNumber}</p>
+                </div>
             </div>
         </div>
     );

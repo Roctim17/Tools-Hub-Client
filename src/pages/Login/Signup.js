@@ -122,10 +122,22 @@ const Signup = () => {
 
                         </div>
                         {/* <div className="form-control w-full max-w-xs pb-5">
-                            <input type="text" name='address' placeholder="Address" className="input input-bordered input-primary w-full max-w-xs" required />
+                            <input type="text" name='address' placeholder="Address" className="input input-bordered input-primary w-full max-w-xs"
+                                {...register("Address", {
+                                    required: {
+                                        value: true,
+                                        message: 'Address is Required'
+                                    }
+                                })} required />
                         </div>
                         <div className="form-control w-full max-w-xs pb-5">
-                            <input type="text" name='phone' placeholder="Phone Number" className="input input-bordered input-primary w-full max-w-xs" required />
+                            <input type="number" name='PhoneNumber' placeholder="Phone Number" className="input input-bordered input-primary w-full max-w-xs"
+                                {...register("PhoneNumber", {
+                                    required: {
+                                        value: true,
+                                        message: 'PhoneNumber is Required'
+                                    }
+                                })} required />
                         </div> */}
 
 

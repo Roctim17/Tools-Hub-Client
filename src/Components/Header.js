@@ -14,13 +14,19 @@ const Header = () => {
     const menuItems = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About </Link></li>
+        <li><Link to="/product">Product </Link></li>
         <li><Link to="/blog">blog</Link></li>
         <li><Link to="/portfolio">My Portfolio</Link></li>
         <li><Link to="/contact">Contact Us </Link> </li>
         {
             user && <li><Link to="/dashboard">Dashboard</Link></li>
         }
-        <li>{user ? <button className="btn btn-ghost" onClick={logout}>Sign Out</button> : <Link to="/login">Login</Link>}</li>
+        <li>{user ? <button className="btn btn-ghost pt-5" onClick={logout}>Sign Out</button> : <Link to="/login">Login</Link>}</li>
+        <li>{user ? <div onClick={logout} className="avatar online">
+            <div className="w-8 rounded-full bg-neutral-focus text-neutral-content">
+                <img src={user.photoURL || ('https://api.lorem.space/image/face?hash=28212')} alt='' />
+            </div>
+        </div> : ''}</li>
     </>
     return (
         <div className="navbar bg-base-100">

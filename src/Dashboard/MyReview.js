@@ -6,7 +6,7 @@ const MyReview = () => {
 
     const onSubmit = data => {
         console.log(data)
-        const url = `http://localhost:5000/review`;
+        const url = `https://polar-citadel-29750.herokuapp.com/review`;
         fetch(url, {
             method: 'POST',
             headers: {
