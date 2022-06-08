@@ -29,7 +29,7 @@ const ManageProducts = () => {
         <div>
             <h2 className="text-2xl">All Users: {products.length}</h2>
             <div className="overflow-x-auto">
-                <table className="table w-full">
+                <table className="table w-full sm:w-24">
                     <thead>
                         <tr>
                             <th>Image</th>
