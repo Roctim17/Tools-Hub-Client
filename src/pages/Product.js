@@ -11,9 +11,10 @@ const Product = () => {
     }
 
     return (
-        <div className=''>
-            <h1 className='card-body items-center text-center'><span className='card-title text-primary text-5xl font-bold'>Our All Products </span></h1>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-50 m-auto">
+        <div className='lg:px-36'>
+            <h1 className='card-body items-center text-center py-12'>
+                <span className='card-title text-primary text-5xl font-bold'>Our All Products </span></h1>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 m-auto">
                 {
                     products.map(product => <SingleTools
                         key={product._id}

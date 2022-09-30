@@ -1,35 +1,32 @@
 import React from 'react';
-import contactUs from '../assets/image/contactUs.jpg';
+import contactme from '../assets/image/contactme.jpg';
+import "./contact.css"
 
 const Contact = () => {
     return (
-        <section style={{
-            background: `url(${contactUs})`,
-            backgroundPosition: 'center',
-        }} className='py-5'>
-            <div className="text-center py-20">
-                <h3 className='text-primary text-3xl font-bold'>Contact Us</h3>
-                <h1 className='text-black text-4xl font-bold'>Stay connected with us</h1>
-                <div className="my-5">
-                    <div className="form-control   w-9/12  m-auto">
-                        <label className="">
-                            <input type="text" placeholder="Email Address" className="input input-bordered w-3/4 my-3" />
-                        </label>
-
-                        <label className="">
-                            <input type="text" placeholder="Subject" className="input input-bordered w-3/4 my-3 " />
-                        </label>
-
-                        <label className="">
-                            <textarea type="text" placeholder="Your message" className="input input-bordered w-3/4 my-3" />
-                        </label>
-                    </div>
-
-                </div>
-                <button className='btn btn-primary'>Contact</button>
+        <section id="contact">
+        <h1>Contact Me</h1>
+        <div class="container">
+            <div class="half-width leftside">
+                <img src={contactme} alt=""/>
             </div>
-
-        </section>
+            <div class="half-width rightside">
+                <h3>Get in touch</h3>
+                <div class="contactbox">
+                    <input class="contact" type="text" placeholder="Name"/>
+                    <input class="contact" type="email" placeholder="Email"/>
+                </div>
+                <div>
+                    <input class="contact project" type="text" placeholder="Project"/>
+                </div>
+                <div>
+                    <textarea class="contact project" name="" id="" cols="30" rows="10"
+                        placeholder="Message"></textarea>
+                </div>
+                <input class="button" type="button" value="Send Message"/>
+            </div>
+        </div>
+    </section>
     );
 };
 

@@ -1,0 +1,109 @@
+body{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  h1{
+    font-size: 50px;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  section{
+    margin: 0 50px;
+  }
+  
+  
+  .container{
+    display: flex;
+    margin: 50px 50px;
+  }
+  
+  
+  
+  .half-width{
+    width: 45%;
+    padding: 30px 0px 0px 0px;
+  }
+  .half-width img{
+    width: 100%;
+  }
+  .button{
+    border: 1px;
+    border-radius: 5px;
+    padding: 15px 35px;
+    background-color: #fb5200;
+    color: #fff;
+  }
+  
+  
+  
+  .contactbox{
+    display: flex;
+  }
+  #contact{
+    text-align: center;
+    background-image: url(/src/assets/image/shape-1.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 40%;
+    background-position-x: 85%;
+    background-position-y: 115%;
+  }
+  .contact{
+    border: 1px;
+    padding: 10px 50px;
+    border-radius: 5px;
+    margin: 10px;
+    width: 97%;
+    text-align: center;
+    background-color: #FFFFFF40;
+    box-shadow: 5px 5px 9px;
+  }
+  
+  @media only screen and (max-width:688px) {
+    .container{
+        margin: 0;
+        flex-direction: column;
+        margin-bottom: 10%;
+    }
+    h1{
+        font-size: 30px;
+        line-height: 1.2;
+    }
+  
+   
+    .half-width{
+        width: 90%;
+        text-align: center;
+    }
+  
+    #contact{
+        
+        background-position:bottom;
+        background-size: 100%;
+        background-position-y: 100%;
+    }
+    .contact{
+        border: 1px;
+        padding: 10px 0px;
+        border-radius: 5px;
+        margin: 10px;
+        width: 95%;
+        
+        box-shadow: 5px 5px 9px;
+    }
+    .leftside{
+        padding-right: 5px;
+    }
+    .rightside{
+        padding-left: 5px;
+    }
+    .button{
+        border: 1px;
+        border-radius: 5px;
+        padding: 15px 15px;
+        background-color: #fb5200;
+        color: #fff;
+    }
+  }
