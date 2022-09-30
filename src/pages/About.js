@@ -3,7 +3,6 @@ import React from 'react';
 const About = () => {
     return (
         <div className='bg-base-200'>
-            
             <div className="hero min-h-screen bg-base-200">
             <h1 className='text-center text-5xl font-bold pb-96' >About Us</h1>
                 <div className="hero-content flex-col lg:flex-row-reverse">
